@@ -41,7 +41,7 @@ class LoginPage extends Component {
   render() {
     const isLoginBtnDisable = !(this.state.email !== '') || !(this.state.password !== '');
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: '#EAEAEA' }}>
         <HeaderNavBar title={'登录'} />
         <CardContainer>
           <CardItem>

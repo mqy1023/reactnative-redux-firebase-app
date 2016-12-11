@@ -16,6 +16,8 @@
   * 截止目前, redux是为了使用而使用
 * 3、firebase
   * Authentication
+    * `createUserWithEmailAndPassword` 邮箱注册
+    * `signInWithEmailAndPassword` 登录
   * database
     * `set` 添加
     * `remove` 删除

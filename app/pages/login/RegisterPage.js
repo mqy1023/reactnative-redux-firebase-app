@@ -44,7 +44,7 @@ class RegisterPage extends Component {
   render() {
     const isLoginBtnDisable = !(this.state.email !== '') || !(this.state.password !== '') || !(this.state.passwordConfirm !== '');
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: '#EAEAEA' }}>
         <HeaderNavBar
           title={'注册'}
           leftIcon

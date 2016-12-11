@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import firebase from 'firebase';
 import { HeaderNavBar } from '../components/common';
 import AddOrEditDataPage from './AddOrEditDataPage';
+import HomeListItem from '../components/HomeListItem';
+import { toastShort } from '../utils/toastUtil';
 
 class HomePage extends Component {
 
@@ -42,16 +44,10 @@ class HomePage extends Component {
 
   renderItem(item) {
     return (
-      <TouchableOpacity
-        style={styles.listItem}
+      <HomeListItem
+        data={item}
         onPress={this.handleClickItem.bind(this, item)}
-        activeOpacity={0.8}
-      >
-        <Text style={styles.item}>{`name: ${item.name}`}</Text>
-        <Text style={[styles.item, { flex: 1.8 }]}>{`phone: ${item.phone}`}</Text>
-        <Text style={styles.item}>{item.day}</Text>
-        <Image source={require('../imgs/ic_arrow_right.png')} style={styles.icon} />
-      </TouchableOpacity>
+      />
     );
   }
 
@@ -102,25 +98,6 @@ const styles = StyleSheet.create({
   separatorView: {
     flex: 1,
     height: 10,
-    // backgroundColor: '#EAEAEA',
-  },
-  listItem: {
-    flex: 1,
-    flexDirection: 'row',
-    paddingHorizontal: 10,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#FFF',
-    borderColor: '#ddd',
-    borderBottomWidth: 1,
-    borderTopWidth: 1
-  },
-  item: {
-    flex: 1
-  },
-  icon: {
-    width: 8,
-    resizeMode: 'contain'
   }
 });
 
