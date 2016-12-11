@@ -18,7 +18,8 @@ class Root extends Component {
       messagingSenderId: '804534923225'
     };
 
-    firebase.initializeApp(config);
+    const firebaseApp = firebase.initializeApp(config);
+    console.log('firebaseApp', firebaseApp.database().ref());
   }
 
   render() {

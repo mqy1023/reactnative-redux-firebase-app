@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Alert } from 'react-native';
+import { View, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import firebase from 'firebase';
 import { CardContainer, CardItem, InputItem, Button, HeaderNavBar } from '../../components/common';
@@ -24,6 +24,7 @@ class LoginPage extends Component {
     this.setState({ isLoading: true });
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(user => {
+        console.log('user', user);
         this.setState({ isLoading: false });
         this.props.setCurrentUID(user.uid);
         this.props.navigator.replace({ component: HomePage });
@@ -40,7 +41,7 @@ class LoginPage extends Component {
   render() {
     const isLoginBtnDisable = !(this.state.email !== '') || !(this.state.password !== '');
     return (
-      <View style={styles.container}>
+      <View style={{ flex: 1 }}>
         <HeaderNavBar title={'登录'} />
         <CardContainer>
           <CardItem>
@@ -62,33 +63,26 @@ class LoginPage extends Component {
             />
           </CardItem>
         </CardContainer>
-        <View style={styles.buttonWrap}>
-          <Button
-            onPress={this.handleLogin}
-            isFillBackGround
-            isLoading={this.state.isLoading}
-            style={{ marginVertical: 20 }}
-            disabled={isLoginBtnDisable || this.state.isLoading}
-          >
-            登录
-          </Button>
-          <Button onPress={() => { this.props.navigator.push({ component: RegisterPage }); }}>
-            去注册
-          </Button>
-        </View>
+        <Button
+          onPress={this.handleLogin}
+          isFillBackGround
+          isLoading={this.state.isLoading}
+          style={{ marginVertical: 20, marginHorizontal: 10 }}
+          disabled={isLoginBtnDisable || this.state.isLoading}
+        >
+          登录
+        </Button>
+        <Button
+          style={{ marginHorizontal: 10 }}
+          disabled={this.state.isLoading}
+          onPress={() => { this.props.navigator.push({ component: RegisterPage }); }}
+        >
+          去注册
+        </Button>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  buttonWrap: {
-    marginHorizontal: 10
-  }
-});
 
 const mapDispatchToProps = (dispatch) => {
   return {

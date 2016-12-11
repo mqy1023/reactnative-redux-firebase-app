@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View, Alert, StyleSheet } from 'react-native';
+import { View, Alert } from 'react-native';
 import firebase from 'firebase';
-// import LeanCloudApp from 'leancloud-storage';
 import { CardContainer, CardItem, InputItem, Button, HeaderNavBar } from '../../components/common';
-import { toastShort } from '../../utils/toastUtil'
+import { toastShort } from '../../utils/toastUtil';
 
 class RegisterPage extends Component {
 
@@ -43,9 +42,9 @@ class RegisterPage extends Component {
   }
 
   render() {
-    const isLoginBtnDisable = !(this.state.email !== '') || !(this.state.password !== '');
+    const isLoginBtnDisable = !(this.state.email !== '') || !(this.state.password !== '') || !(this.state.passwordConfirm !== '');
     return (
-      <View style={styles.container}>
+      <View style={{ flex: 1 }}>
         <HeaderNavBar
           title={'注册'}
           leftIcon
@@ -80,32 +79,25 @@ class RegisterPage extends Component {
             />
           </CardItem>
         </CardContainer>
-        <View style={styles.buttonWrap}>
-          <Button
-            onPress={this.hanldeSignUp}
-            isFillBackGround
-            isLoading={this.state.isLoading}
-            style={{ marginVertical: 20 }}
-            disabled={isLoginBtnDisable || this.state.isLoading}
-          >
-            注册
-          </Button>
-          <Button onPress={() => { this.props.navigator.pop(); }}>
-            去登录
-          </Button>
-        </View>
+        <Button
+          onPress={this.hanldeSignUp}
+          isFillBackGround
+          isLoading={this.state.isLoading}
+          style={{ marginVertical: 20, marginHorizontal: 10 }}
+          disabled={isLoginBtnDisable || this.state.isLoading}
+        >
+          注册
+        </Button>
+        <Button
+          style={{ marginHorizontal: 10 }}
+          disabled={this.state.isLoading}
+          onPress={() => { this.props.navigator.pop(); }}
+        >
+          去登录
+        </Button>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  buttonWrap: {
-    marginHorizontal: 10
-  }
-});
 
 export default RegisterPage;

@@ -4,7 +4,7 @@ import { SpinnerLoading } from './SpinnerLoading';
 
 const Button = ({ onPress, children, isFillBackGround, disabled, isLoading, style }) => {
   const { buttonStyle, textStyle } = styles;
-
+  const textColor = isFillBackGround ? { color: '#fff' } : { color: '#007aff' };
   return (
     <TouchableOpacity
       disabled={disabled}
@@ -17,7 +17,7 @@ const Button = ({ onPress, children, isFillBackGround, disabled, isLoading, styl
         isLoading ? (
           <SpinnerLoading size="small" color="#fff" />
         ) : (
-          <Text style={[textStyle, isFillBackGround ? { color: '#fff' } : { color: '#007aff' }]}>{children}</Text>
+          <Text style={[textStyle, textColor, disabled ? { color: '#666' } : {}]}>{children}</Text>
         )
       }
     </TouchableOpacity>

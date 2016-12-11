@@ -39,6 +39,7 @@ const HeaderNavBar = (props) => {
       key={'rightContent'}
       activeOpacity={0.85}
       style={{ width: 100, alignItems: 'flex-end' }}
+      onPress={props.rightIconAction}
     >
       {
         (props.rightIcon === 'all') ? <Image style={iconStyle} source={require('../../imgs/ic_arrow_left.png')} /> : null
