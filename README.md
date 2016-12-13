@@ -1,7 +1,5 @@
-# reactnative-redux-firebase-app
-
 ## 测试账号
-邮箱：123456@qq.com.
+邮箱：123456@qq.com
 
 密码：123456
 

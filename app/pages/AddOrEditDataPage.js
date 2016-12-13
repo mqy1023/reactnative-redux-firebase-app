@@ -41,7 +41,7 @@ export default class AddOrEditDataPage extends Component {
     }
   }
 
-  handleSave() {
+  handleSave() { //    '/hot_products/hot3'
     const { name, phone, day } = this.state;
     this.setState({ isLoading1: true });
     this.db.ref(`/users/${this.props.uid}/contacts/${name}`).set({ name, phone, day }).then(() => {
@@ -63,7 +63,7 @@ export default class AddOrEditDataPage extends Component {
     const isCreateBtnDisable = !(this.state.name !== '') || !(this.state.phone !== '');
     const { item } = this.props;
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, backgroundColor: '#FFF' }}>
         <HeaderNavBar
           title={item ? '更改联系人' : '新建联系人'}
           leftIcon

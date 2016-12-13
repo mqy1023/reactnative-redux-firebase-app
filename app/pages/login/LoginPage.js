@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import firebase from 'firebase';
 import { CardContainer, CardItem, InputItem, Button, HeaderNavBar } from '../../components/common';
 import RegisterPage from './RegisterPage';
-import HomePage from '../HomePage';
+import HomePage from '../TabBarViews';
 import { setCurrentUID } from '../../actions';
 
 class LoginPage extends Component {
@@ -12,8 +12,8 @@ class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      password: '',
+      email: '123456@qq.com',
+      password: '123456',
       isLoading: false
     };
     this.handleLogin = this.handleLogin.bind(this);
