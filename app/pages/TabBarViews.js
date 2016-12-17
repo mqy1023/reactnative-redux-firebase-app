@@ -3,6 +3,7 @@ import { StyleSheet, Image, View } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import HomePage from './HomePage';
 import MineMainPage from './mine/MineMainPage';
+import MallMainPage from './mall/MallMainPage';
 
 /* eslint global-require: "off"*/
 export default class TabBarViews extends React.Component {
@@ -47,7 +48,7 @@ export default class TabBarViews extends React.Component {
           sceneStyle={{ paddingBottom: 0 }}
         >
           {this.renderTab(HomePage, '首页', require('../imgs/ic_home.png'))}
-          {this.renderTab(HomePage, '商场', require('../imgs/ic_community.png'))}
+          {this.renderTab(MallMainPage, '商场', require('../imgs/ic_community.png'))}
           {this.renderTab(MineMainPage, '我的', require('../imgs/ic_personal.png'))}
         </TabNavigator>
       </View>

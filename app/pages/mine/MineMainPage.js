@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ListView, Platform, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableHighlight, Platform, Image, Dimensions, TouchableOpacity } from 'react-native';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import Carousel from '../../components/Carousel';
+import { toastShort } from '../../utils/toastUtil';
 
+const { width, height } = Dimensions.get('window');
 
 class MineMainPage extends Component {
 
@@ -52,8 +55,8 @@ class MineMainPage extends Component {
         parallaxHeaderHeight={PARALLAX_HEADER_HEIGHT}
         {...renderConfig}
       >
-        <View style={{ height: 500 }}>
-          <Text>Scroll me</Text>
+        <View style={styles.container}>
+          <Text>Scroll Me!</Text>
         </View>
       </ParallaxScrollView>
     );
@@ -69,7 +72,6 @@ const STICKY_HEADER_HEIGHT = (Platform.OS === 'ios') ? 64 : 44;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'black'
   },
   stickySection: {
     height: STICKY_HEADER_HEIGHT,

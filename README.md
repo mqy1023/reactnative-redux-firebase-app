@@ -5,8 +5,10 @@
 
 ## APP页面
 ![登录页面](./images/image1.png)
-![主页](./images/image2.png)
+![首页](./images/image2.png)
 ![添加/修改联系人](./images/image3.png)
+![商场](./images/image4.png)
+![我的](./images/image5.png)
 
 ## 知识点
 * 1、react native
